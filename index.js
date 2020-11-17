@@ -123,7 +123,7 @@ client.connect(err => {
 
 
 app.get('/',(req, res)=>{
-  res.send('Its working')
+  res.send('Our Apartment Hunt Server Live.')
 })
 
 
