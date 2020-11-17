@@ -24,15 +24,13 @@ const client = new MongoClient(uri, { useNewUrlParser: true,  useUnifiedTopology
 client.connect(err => {
   const apartmentCollection = client.db("apoinmentHunt").collection("apoinment");
   const bookingCollection = client.db("apoinmentHunt").collection("booking");
-
   
   app.get('/appoinments',(req, res)=>{
     apartmentCollection.find({})
-    .toArray((err, documents) =>{
-      res.send(documents)
+    .toArray((err, documentss) =>{
+      res.send(documentss)
     })
   })
-
   app.get('/apartment/', (req, res) => {
     console.log(req.query.id)
     apartmentCollection.find({_id: ObjectId(req.query.id)})
